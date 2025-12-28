@@ -40,3 +40,17 @@ export function generatePDFFilename(clientName: string, quoteNumber: string): st
   const sanitizedQuote = sanitizeFilename(quoteNumber);
   return `Quotation_${sanitizedClient}_${sanitizedQuote}.pdf`;
 }
+
+export function generateInvoiceNumber(prefix: string = 'INV'): string {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const random = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+  return `${prefix}-${year}${month}-${random}`;
+}
+
+export function generateInvoicePDFFilename(clientName: string, invoiceNumber: string): string {
+  const sanitizedClient = sanitizeFilename(clientName);
+  const sanitizedInvoice = sanitizeFilename(invoiceNumber);
+  return `Invoice_${sanitizedClient}_${sanitizedInvoice}.pdf`;
+}

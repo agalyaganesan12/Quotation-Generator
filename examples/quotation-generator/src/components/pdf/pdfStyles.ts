@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     marginBottom: 30,
     paddingBottom: 15,
     borderBottomWidth: 2,
-    borderBottomColor: '#3b82f6',
+    borderBottomColor: '#8b4513',
   },
   headerLeft: {
     flex: 1,
@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
   },
   gstNumber: {
     fontSize: 9,
-    color: '#3b82f6',
+    color: '#8b4513',
     fontWeight: 'bold',
     marginTop: 5,
   },
@@ -109,7 +109,7 @@ export const styles = StyleSheet.create({
   },
   tableHeader: {
     flexDirection: 'row',
-    backgroundColor: '#3b82f6',
+    backgroundColor: '#8b4513',
     padding: 10,
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5,
@@ -175,7 +175,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingVertical: 10,
-    backgroundColor: '#3b82f6',
+    backgroundColor: '#8b4513',
     paddingHorizontal: 10,
     borderRadius: 5,
     marginTop: 5,

@@ -1,4 +1,5 @@
 export { QuotationDocument } from './QuotationDocument';
+export { InvoiceDocument } from './InvoiceDocument';
 export { PDFHeader } from './PDFHeader';
 export { PDFClientSection } from './PDFClientSection';
 export { PDFItemsTable } from './PDFItemsTable';
