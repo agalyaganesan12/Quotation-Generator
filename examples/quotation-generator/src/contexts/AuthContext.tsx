@@ -15,6 +15,7 @@ interface AuthProviderProps {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Check for stored user on mount
   useEffect(() => {
@@ -23,6 +24,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setUser(storedUser);
       setIsAuthenticated(true);
     }
+    setIsLoading(false);
   }, []);
 
   const login = useCallback(async (credentials: LoginCredentials): Promise<boolean> => {
@@ -43,7 +45,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, login, logout }}>
+    <AuthContext.Provider value={{ isAuthenticated, isLoading, user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

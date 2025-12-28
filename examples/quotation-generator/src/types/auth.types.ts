@@ -21,6 +21,7 @@ export interface LoginCredentials {
 
 export interface AuthContextType {
   isAuthenticated: boolean;
+  isLoading: boolean;
   user: User | null;
   login: (credentials: LoginCredentials) => Promise<boolean>;
   logout: () => void;
