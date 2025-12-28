@@ -1,5 +1,5 @@
-# Single stage - build and serve with Node.js
-FROM node:20-alpine
+# Build stage
+FROM node:20-alpine AS build
 
 WORKDIR /app
 
@@ -15,11 +15,16 @@ COPY . .
 # Build the app
 RUN npm run build
 
-# Install serve to host static files
-RUN npm install -g serve
+# Production stage
+FROM nginx:alpine
 
-# Expose port 3000
-EXPOSE 3000
+# Copy custom nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Serve the built app
-CMD ["serve", "-s", "dist", "-l", "3000"]
+# Copy built files
+COPY --from=build /app/dist /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
