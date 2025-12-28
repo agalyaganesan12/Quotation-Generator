@@ -1,0 +1,9 @@
+services:
+  quotation-generator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    container_name: quotation-generator
+    restart: unless-stopped
