@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
     padding: 40,
     fontSize: 10,
     fontFamily: 'Helvetica',
-    lineHeight: 1.4,
     backgroundColor: '#ffffff',
     color: '#1a1a1a',
   },
@@ -47,7 +46,6 @@ export const styles = StyleSheet.create({
     fontSize: 9,
     color: '#4a4a4a',
     marginBottom: 2,
-    lineHeight: 1.3,
   },
   gstNumber: {
     fontSize: 9,
@@ -121,7 +119,6 @@ export const styles = StyleSheet.create({
     fontSize: 9,
     color: '#4a4a4a',
     marginBottom: 2,
-    lineHeight: 1.3,
   },
 
   // ===== ITEMS TABLE =====
@@ -130,7 +127,7 @@ export const styles = StyleSheet.create({
   },
   tableHeader: {
     flexDirection: 'row',
-    backgroundColor: '#1a1a1a',
+    backgroundColor: '#8b4513',
     paddingVertical: 8,
     paddingHorizontal: 6,
   },
@@ -161,13 +158,13 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  // Column widths - total = 100%
+  // Column widths - total = 100%, all center aligned
   colNum: { width: '6%', textAlign: 'center' },
-  colName: { width: '28%', textAlign: 'left' },
-  colDesc: { width: '26%', textAlign: 'left' },
-  colQty: { width: '10%', textAlign: 'right' },
-  colPrice: { width: '15%', textAlign: 'right' },
-  colTotal: { width: '15%', textAlign: 'right' },
+  colName: { width: '28%', textAlign: 'center' },
+  colDesc: { width: '26%', textAlign: 'center' },
+  colQty: { width: '10%', textAlign: 'center' },
+  colPrice: { width: '15%', textAlign: 'center' },
+  colTotal: { width: '15%', textAlign: 'center' },
 
   // ===== SUMMARY SECTION =====
   summarySection: {
@@ -201,7 +198,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 10,
     paddingHorizontal: 10,
-    backgroundColor: '#1a1a1a',
+    backgroundColor: '#8b4513',
     marginTop: 4,
   },
   grandTotalLabel: {
@@ -240,7 +237,6 @@ export const styles = StyleSheet.create({
   termsText: {
     fontSize: 8,
     color: '#4a4a4a',
-    lineHeight: 1.5,
   },
 
   // ===== SIGNATURE =====

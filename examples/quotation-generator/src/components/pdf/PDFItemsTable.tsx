@@ -13,7 +13,7 @@ export function PDFItemsTable({ items, currency }: PDFItemsTableProps) {
     <View style={styles.table}>
       {/* Table Header */}
       <View style={styles.tableHeader}>
-        <Text style={[styles.tableHeaderCell, styles.colNum]}>#</Text>
+        <Text style={[styles.tableHeaderCell, styles.colNum]}>S.No</Text>
         <Text style={[styles.tableHeaderCell, styles.colName]}>Item</Text>
         <Text style={[styles.tableHeaderCell, styles.colDesc]}>Description</Text>
         <Text style={[styles.tableHeaderCell, styles.colQty]}>Qty</Text>
@@ -37,10 +37,10 @@ export function PDFItemsTable({ items, currency }: PDFItemsTableProps) {
           </Text>
           <Text style={[styles.tableCell, styles.colQty]}>{item.quantity}</Text>
           <Text style={[styles.tableCell, styles.colPrice]}>
-            {formatCurrency(item.unitPrice, currency)}
+            {formatCurrency(item.unitPrice, currency, true)}
           </Text>
           <Text style={[styles.tableCellBold, styles.colTotal]}>
-            {formatCurrency(item.lineTotal, currency)}
+            {formatCurrency(item.lineTotal, currency, true)}
           </Text>
         </View>
       ))}

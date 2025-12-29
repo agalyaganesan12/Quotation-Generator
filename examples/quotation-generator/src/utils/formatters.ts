@@ -1,8 +1,8 @@
 import type { Currency } from '../types/quote.types';
 import { CURRENCY_SYMBOLS } from '../types/quote.types';
 
-export function formatCurrency(amount: number, currency: Currency): string {
-  const symbol = CURRENCY_SYMBOLS[currency];
+export function formatCurrency(amount: number, currency: Currency, forPDF: boolean = false): string {
+  const symbol = forPDF ? '' : CURRENCY_SYMBOLS[currency];
   const formatted = amount.toLocaleString('en-IN', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,

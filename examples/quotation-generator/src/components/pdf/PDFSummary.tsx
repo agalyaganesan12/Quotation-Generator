@@ -32,7 +32,7 @@ export function PDFSummary({
       {/* Subtotal */}
       <View style={styles.summaryRow}>
         <Text style={styles.summaryLabel}>Subtotal</Text>
-        <Text style={styles.summaryValue}>{formatCurrency(subtotal, currency)}</Text>
+        <Text style={styles.summaryValue}>{formatCurrency(subtotal, currency, true)}</Text>
       </View>
 
       {/* Discount */}
@@ -42,7 +42,7 @@ export function PDFSummary({
             Discount {discountType === 'percentage' ? `(${discountValue}%)` : ''}
           </Text>
           <Text style={[styles.summaryValue, styles.summaryDiscount]}>
-            - {formatCurrency(discountAmount, currency)}
+            - {formatCurrency(discountAmount, currency, true)}
           </Text>
         </View>
       )}
@@ -52,7 +52,7 @@ export function PDFSummary({
         <View style={styles.summaryRow}>
           <Text style={styles.summaryLabel}>Tax ({taxPercent}%)</Text>
           <Text style={styles.summaryValue}>
-            + {formatCurrency(taxAmount, currency)}
+            + {formatCurrency(taxAmount, currency, true)}
           </Text>
         </View>
       )}
@@ -61,7 +61,7 @@ export function PDFSummary({
       <View style={styles.grandTotalRow}>
         <Text style={styles.grandTotalLabel}>Grand Total</Text>
         <Text style={styles.grandTotalValue}>
-          {formatCurrency(grandTotal, currency)}
+          {formatCurrency(grandTotal, currency, true)}
         </Text>
       </View>
     </View>
