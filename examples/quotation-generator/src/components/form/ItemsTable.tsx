@@ -86,7 +86,7 @@ export function ItemsTable({
               <tr className="border-b bg-gray-50">
                 <th className="text-left py-3 px-2 text-sm font-medium text-gray-700 w-8">#</th>
                 <th className="text-left py-3 px-2 text-sm font-medium text-gray-700">Item Name</th>
-                <th className="text-left py-3 px-2 text-sm font-medium text-gray-700 hidden md:table-cell">Description</th>
+                <th className="text-left py-3 px-2 text-sm font-medium text-gray-700">Description</th>
                 <th className="text-right py-3 px-2 text-sm font-medium text-gray-700 w-24">Qty</th>
                 <th className="text-right py-3 px-2 text-sm font-medium text-gray-700 w-32">Unit Price</th>
                 <th className="text-right py-3 px-2 text-sm font-medium text-gray-700 w-32">Total</th>
@@ -104,12 +104,12 @@ export function ItemsTable({
                       className="min-w-32"
                     />
                   </td>
-                  <td className="py-2 px-2 hidden md:table-cell">
-                    <textarea
-                      placeholder="Description (optional)"
-                      {...register(`items.${index}.description` as const)}
-                      rows={1}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#a0522d] focus:border-[#8b4513] resize-none"
+                  <td className="py-2 px-2">
+                    <input
+                      type="text"
+                      placeholder="Description"
+                      {...register(`items.${index}.description`)}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#a0522d] focus:border-[#8b4513]"
                     />
                   </td>
                   <td className="py-2 px-2">
@@ -156,22 +156,6 @@ export function ItemsTable({
             </tbody>
           </table>
 
-          {/* Mobile description - shown below each item on mobile */}
-          <div className="md:hidden mt-4 space-y-4">
-            {fields.map((field, index) => (
-              <div key={`desc-${field.id}`} className="border-b pb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Item {index + 1} Description
-                </label>
-                <textarea
-                  placeholder="Description (optional)"
-                  {...register(`items.${index}.description` as const)}
-                  rows={2}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-[#a0522d] focus:border-[#8b4513] resize-none"
-                />
-              </div>
-            ))}
-          </div>
         </div>
       )}
 

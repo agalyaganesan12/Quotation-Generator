@@ -12,7 +12,7 @@ export function PDFClientSection({ client }: PDFClientSectionProps) {
       <Text style={styles.sectionTitle}>Bill To</Text>
       <Text style={styles.clientName}>{client.name}</Text>
       {client.company && (
-        <Text style={styles.clientDetails}>{client.company}</Text>
+        <Text style={styles.clientCompany}>{client.company}</Text>
       )}
       <Text style={styles.clientDetails}>{client.address}</Text>
       {client.phone && (

@@ -12,27 +12,28 @@ interface PDFFooterProps {
 export function PDFFooter({ terms, paymentTerms, signature, companyName }: PDFFooterProps) {
   return (
     <>
-      {/* Terms Section */}
+      {/* Terms Section - Two Column Layout */}
       {(terms || paymentTerms) && (
         <View style={styles.termsSection}>
-          {terms && (
-            <View style={{ marginBottom: 15 }}>
-              <Text style={styles.termsTitle}>Terms & Conditions</Text>
-              <Text style={styles.termsText}>{terms}</Text>
-            </View>
-          )}
-          {paymentTerms && (
-            <View>
-              <Text style={styles.termsTitle}>Payment Terms</Text>
-              <Text style={styles.termsText}>{paymentTerms}</Text>
-            </View>
-          )}
+          <View style={styles.termsRow}>
+            {terms && (
+              <View style={styles.termsColumn}>
+                <Text style={styles.termsTitle}>Terms & Conditions</Text>
+                <Text style={styles.termsText}>{terms}</Text>
+              </View>
+            )}
+            {paymentTerms && (
+              <View style={styles.termsColumn}>
+                <Text style={styles.termsTitle}>Payment Terms</Text>
+                <Text style={styles.termsText}>{paymentTerms}</Text>
+              </View>
+            )}
+          </View>
         </View>
       )}
 
-      {/* Signature Section */}
+      {/* Signature Section - Right Aligned */}
       <View style={styles.footer}>
-        <View style={{ flex: 1 }} />
         <View style={styles.signatureSection}>
           {signature?.type === 'image' && signature.value && (
             <Image src={signature.value} style={styles.signatureImage} />

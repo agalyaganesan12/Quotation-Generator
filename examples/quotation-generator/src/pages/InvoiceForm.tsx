@@ -4,7 +4,7 @@
 
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useForm, useFieldArray } from 'react-hook-form';
+import { useForm, useFieldArray, useWatch } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { v4 as uuidv4 } from 'uuid';
 import { z } from 'zod';
@@ -154,10 +154,12 @@ export function InvoiceForm() {
   const watchedData = watch();
   const currency = watch('currency');
   const logo = watch('company.logo');
-  const items = watch('items');
   const discountType = watch('discountType');
   const discountValue = watch('discountValue');
   const taxPercent = watch('taxPercent');
+
+  // Use useWatch for reactive item updates
+  const items = useWatch({ control, name: 'items' });
 
   const totals = calculateAllTotals(items, discountType, discountValue, taxPercent);
 

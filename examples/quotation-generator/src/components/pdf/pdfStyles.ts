@@ -1,92 +1,107 @@
 import { StyleSheet } from '@react-pdf/renderer';
 
+/**
+ * Professional PDF styles for A4 invoice/quotation documents
+ * Optimized for print and B&W compatibility
+ */
 export const styles = StyleSheet.create({
+  // Page setup - A4 with proper margins
   page: {
     padding: 40,
     fontSize: 10,
     fontFamily: 'Helvetica',
-    lineHeight: 1.5,
+    lineHeight: 1.4,
     backgroundColor: '#ffffff',
+    color: '#1a1a1a',
   },
 
-  // Header
+  // ===== HEADER SECTION =====
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 30,
-    paddingBottom: 15,
-    borderBottomWidth: 2,
-    borderBottomColor: '#8b4513',
+    marginBottom: 24,
+    paddingBottom: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#1a1a1a',
   },
   headerLeft: {
     flex: 1,
+    maxWidth: 280,
   },
   headerRight: {
-    alignItems: 'flex-end',
+    width: 180,
   },
   logo: {
-    width: 100,
-    height: 50,
+    width: 80,
+    height: 40,
     objectFit: 'contain',
-    marginBottom: 10,
+    marginBottom: 8,
   },
   companyName: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
-    color: '#1f2937',
-    marginBottom: 5,
+    color: '#1a1a1a',
+    marginBottom: 4,
   },
   companyDetails: {
     fontSize: 9,
-    color: '#6b7280',
+    color: '#4a4a4a',
     marginBottom: 2,
+    lineHeight: 1.3,
   },
   gstNumber: {
     fontSize: 9,
-    color: '#8b4513',
+    color: '#1a1a1a',
     fontWeight: 'bold',
-    marginTop: 5,
+    marginTop: 4,
   },
 
-  // Quote Info Box
+  // ===== INVOICE/QUOTE INFO BOX =====
   quoteInfoBox: {
-    backgroundColor: '#f3f4f6',
-    padding: 15,
-    borderRadius: 5,
-    marginBottom: 20,
+    borderWidth: 1,
+    borderColor: '#1a1a1a',
+    padding: 12,
   },
   quoteTitle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
-    color: '#1f2937',
+    color: '#8b4513',
     marginBottom: 10,
+    textAlign: 'center',
+    textTransform: 'uppercase',
+    letterSpacing: 1,
   },
   quoteInfoRow: {
     flexDirection: 'row',
-    marginBottom: 5,
+    justifyContent: 'space-between',
+    marginBottom: 4,
+    paddingVertical: 2,
   },
   quoteInfoLabel: {
-    width: 80,
     fontSize: 9,
-    color: '#6b7280',
+    color: '#4a4a4a',
+    width: 70,
   },
   quoteInfoValue: {
-    fontSize: 10,
-    color: '#1f2937',
+    fontSize: 9,
+    color: '#1a1a1a',
     fontWeight: 'bold',
+    textAlign: 'right',
+    flex: 1,
   },
 
-  // Client Section
+  // ===== CLIENT/BILL TO SECTION =====
   clientSection: {
-    marginBottom: 25,
-    padding: 15,
+    marginBottom: 20,
+    padding: 12,
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
     backgroundColor: '#fafafa',
-    borderRadius: 5,
   },
   sectionTitle: {
-    fontSize: 11,
+    fontSize: 10,
     fontWeight: 'bold',
-    color: '#374151',
+    color: '#4a4a4a',
     marginBottom: 8,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
@@ -94,160 +109,180 @@ export const styles = StyleSheet.create({
   clientName: {
     fontSize: 12,
     fontWeight: 'bold',
-    color: '#1f2937',
-    marginBottom: 3,
+    color: '#1a1a1a',
+    marginBottom: 4,
+  },
+  clientCompany: {
+    fontSize: 10,
+    color: '#1a1a1a',
+    marginBottom: 2,
   },
   clientDetails: {
     fontSize: 9,
-    color: '#6b7280',
+    color: '#4a4a4a',
     marginBottom: 2,
+    lineHeight: 1.3,
   },
 
-  // Items Table
+  // ===== ITEMS TABLE =====
   table: {
-    marginBottom: 20,
+    marginBottom: 16,
   },
   tableHeader: {
     flexDirection: 'row',
-    backgroundColor: '#8b4513',
-    padding: 10,
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
+    backgroundColor: '#1a1a1a',
+    paddingVertical: 8,
+    paddingHorizontal: 6,
   },
   tableHeaderCell: {
     color: '#ffffff',
-    fontSize: 9,
+    fontSize: 8,
     fontWeight: 'bold',
     textTransform: 'uppercase',
+    letterSpacing: 0.3,
   },
   tableRow: {
     flexDirection: 'row',
-    padding: 10,
+    paddingVertical: 8,
+    paddingHorizontal: 6,
     borderBottomWidth: 1,
-    borderBottomColor: '#e5e7eb',
+    borderBottomColor: '#e0e0e0',
   },
   tableRowAlt: {
-    backgroundColor: '#f9fafb',
+    backgroundColor: '#f5f5f5',
   },
   tableCell: {
     fontSize: 9,
-    color: '#374151',
+    color: '#1a1a1a',
   },
   tableCellBold: {
     fontSize: 9,
-    color: '#1f2937',
+    color: '#1a1a1a',
     fontWeight: 'bold',
   },
 
-  // Column widths
-  colNum: { width: '5%' },
-  colName: { width: '30%' },
-  colDesc: { width: '25%' },
+  // Column widths - total = 100%
+  colNum: { width: '6%', textAlign: 'center' },
+  colName: { width: '28%', textAlign: 'left' },
+  colDesc: { width: '26%', textAlign: 'left' },
   colQty: { width: '10%', textAlign: 'right' },
   colPrice: { width: '15%', textAlign: 'right' },
   colTotal: { width: '15%', textAlign: 'right' },
 
-  // Summary
+  // ===== SUMMARY SECTION =====
   summarySection: {
-    marginTop: 10,
+    marginTop: 12,
     marginLeft: 'auto',
-    width: 250,
+    width: 220,
   },
   summaryRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: 5,
+    paddingVertical: 6,
+    paddingHorizontal: 8,
     borderBottomWidth: 1,
-    borderBottomColor: '#e5e7eb',
+    borderBottomColor: '#e0e0e0',
   },
   summaryLabel: {
     fontSize: 10,
-    color: '#6b7280',
+    color: '#4a4a4a',
   },
   summaryValue: {
     fontSize: 10,
-    color: '#1f2937',
+    color: '#1a1a1a',
+    fontWeight: 'bold',
+    textAlign: 'right',
   },
   summaryDiscount: {
-    color: '#dc2626',
+    color: '#c41e3a',
   },
   grandTotalRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingVertical: 10,
-    backgroundColor: '#8b4513',
     paddingHorizontal: 10,
-    borderRadius: 5,
-    marginTop: 5,
+    backgroundColor: '#1a1a1a',
+    marginTop: 4,
   },
   grandTotalLabel: {
-    fontSize: 12,
+    fontSize: 11,
     fontWeight: 'bold',
     color: '#ffffff',
+    textTransform: 'uppercase',
   },
   grandTotalValue: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: 'bold',
     color: '#ffffff',
   },
 
-  // Terms
+  // ===== TERMS & FOOTER =====
   termsSection: {
-    marginTop: 30,
-    paddingTop: 15,
+    marginTop: 24,
+    paddingTop: 12,
     borderTopWidth: 1,
-    borderTopColor: '#e5e7eb',
+    borderTopColor: '#e0e0e0',
+  },
+  termsRow: {
+    flexDirection: 'row',
+    gap: 20,
+  },
+  termsColumn: {
+    flex: 1,
   },
   termsTitle: {
-    fontSize: 10,
+    fontSize: 9,
     fontWeight: 'bold',
-    color: '#374151',
-    marginBottom: 5,
+    color: '#4a4a4a',
+    marginBottom: 4,
+    textTransform: 'uppercase',
   },
   termsText: {
     fontSize: 8,
-    color: '#6b7280',
-    lineHeight: 1.6,
+    color: '#4a4a4a',
+    lineHeight: 1.5,
   },
 
-  // Footer / Signature
+  // ===== SIGNATURE =====
   footer: {
-    marginTop: 40,
+    marginTop: 30,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-end',
   },
   signatureSection: {
-    width: 200,
-  },
-  signatureLine: {
-    borderTopWidth: 1,
-    borderTopColor: '#374151',
-    marginTop: 50,
-    paddingTop: 5,
-  },
-  signatureLabel: {
-    fontSize: 9,
-    color: '#6b7280',
-    textAlign: 'center',
+    width: 180,
+    alignItems: 'center',
   },
   signatureImage: {
-    width: 150,
-    height: 50,
+    width: 120,
+    height: 40,
     objectFit: 'contain',
+    marginBottom: 4,
   },
   signatureTyped: {
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: 'Times-Italic',
-    color: '#1f2937',
-    marginBottom: 5,
+    color: '#1a1a1a',
+    marginBottom: 4,
+  },
+  signatureLine: {
+    width: 150,
+    borderTopWidth: 1,
+    borderTopColor: '#1a1a1a',
+    paddingTop: 4,
+  },
+  signatureLabel: {
+    fontSize: 8,
+    color: '#4a4a4a',
+    textAlign: 'center',
   },
 
-  // Page Number
+  // ===== PAGE NUMBER =====
   pageNumber: {
     position: 'absolute',
     bottom: 20,
     right: 40,
     fontSize: 8,
-    color: '#9ca3af',
+    color: '#4a4a4a',
   },
 });
