@@ -176,13 +176,15 @@ export function InvoiceForm() {
     setValue('company.logo', '');
   };
 
-  const handleFieldChange = (index: number) => {
-    const item = items[index];
-    if (item) {
-      const lineTotal = calculateLineTotal(item.quantity, item.unitPrice);
-      setValue(`items.${index}.lineTotal`, lineTotal);
-    }
-  };
+  // Auto-calculate line totals when items change
+  useEffect(() => {
+    items?.forEach((item, index) => {
+      const lineTotal = calculateLineTotal(item.quantity || 0, item.unitPrice || 0);
+      if (item.lineTotal !== lineTotal) {
+        setValue(`items.${index}.lineTotal`, lineTotal, { shouldDirty: true });
+      }
+    });
+  }, [items, setValue]);
 
   const onSaveAndPreview = handleSubmit((data) => {
     const invoice: StoredInvoice = {
@@ -380,7 +382,6 @@ export function InvoiceForm() {
                         <Input
                           type="number"
                           {...register(`items.${index}.quantity`, { valueAsNumber: true })}
-                          onChange={() => handleFieldChange(index)}
                           min={1}
                           className="text-sm"
                         />
@@ -389,7 +390,6 @@ export function InvoiceForm() {
                         <Input
                           type="number"
                           {...register(`items.${index}.unitPrice`, { valueAsNumber: true })}
-                          onChange={() => handleFieldChange(index)}
                           min={0}
                           step="0.01"
                           className="text-sm"

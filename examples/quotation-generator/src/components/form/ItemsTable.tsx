@@ -105,11 +105,9 @@ export function ItemsTable({
                     />
                   </td>
                   <td className="py-2 px-2 hidden md:table-cell">
-                    <input
-                      type="text"
+                    <Input
                       placeholder="Description (optional)"
                       {...register(`items.${index}.description` as const)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     />
                   </td>
                   <td className="py-2 px-2">
@@ -160,14 +158,10 @@ export function ItemsTable({
           <div className="md:hidden mt-4 space-y-4">
             {fields.map((field, index) => (
               <div key={`desc-${field.id}`} className="border-b pb-4">
-                <label className="block text-sm text-gray-600 mb-1">
-                  Item {index + 1} Description
-                </label>
-                <input
-                  type="text"
+                <Input
+                  label={`Item ${index + 1} Description`}
                   placeholder="Description (optional)"
                   {...register(`items.${index}.description` as const)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
               </div>
             ))}
